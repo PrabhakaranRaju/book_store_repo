@@ -9,7 +9,7 @@ import java.util.Map;
 public class BookstoreService {
 
     private static final double BOOK_PRICE = 50;
-    private static final double[] DISCOUNTS = {0.0, 0.0, 0.05, 0.10, 0.20, 0.25};
+    private static final double[] DISCOUNTS = {0.0, 0.05, 0.10, 0.20, 0.25};
 
 
     public double calculatePrice(Map<String, Integer> books) {
