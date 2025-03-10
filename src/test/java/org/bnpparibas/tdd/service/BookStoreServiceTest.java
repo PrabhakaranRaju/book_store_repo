@@ -14,6 +14,6 @@ public class BookStoreServiceTest {
     public void testSingleBookPrice() {
         BookstoreService service = new BookstoreService();
         List<Book> books = Arrays.asList(new Book("Clean Code"));
-        assertEquals(50, service.calculatePrice(books));
+        assertEquals(50.0, service.calculatePrice(books),0.0001);
     }
 }
