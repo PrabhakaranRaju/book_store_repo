@@ -42,5 +42,18 @@ public class BookStoreServiceTest {
         assertEquals(145.0, price, 0.01);
     }
 
+    @Test
+    public void testMultipleBooksWithDifferentCount() {
+        Map<String, Integer> books = new HashMap<>();
+        books.put("Clean Code", 2);
+        books.put("The Clean Coder", 2);
+        books.put("Clean Architecture", 2);
+        books.put("Test Driven Development by Example", 1);
+        books.put("Working Effectively With Legacy Code", 1);
+        BookstoreService service = new BookstoreService();
+        double price = service.calculatePrice(books);
+        assertEquals(320.0, price, 0.01);
+    }
+
 
 }
