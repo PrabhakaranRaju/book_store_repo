@@ -2,31 +2,25 @@ package org.bnpparibas.tdd.service;
 
 import org.bnpparibas.tdd.model.Book;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class BookstoreService {
 
-    private static final double BOOK_PRICE = 50.0;
+    private static final double BOOK_PRICE = 50;
+    private static final double[] DISCOUNTS = {0.0, 0.0, 0.05, 0.10, 0.20, 0.25};
 
-    public double calculatePrice(List<Book> books) {
-        int uniqueBooks = (int) books.stream().map(Book::getBookTitle).distinct().count();
-        double discount = getDiscount(uniqueBooks);
-        return books.size() * BOOK_PRICE * (1 - discount);
-    }
 
-    private double getDiscount(int uniqueBooks) {
-        switch (uniqueBooks) {
-            case 2:
-                return 5 / 100.0;
-            case 3:
-                return 10 / 100.0;
-            case 4:
-                return 20 / 100.0;
-            case 5:
-                return 25 / 100.0;
-            default:
-                return 0.0;
+    public double calculatePrice(Map<String, Integer> books) {
+        List<Integer> bookCounts = new ArrayList<>(books.values());
+        double totalPrice = 0.0;
+        for (int count : bookCounts) {
+            int distinctBooks = 0;
+            distinctBooks++;
+            totalPrice += distinctBooks * BOOK_PRICE * (1 - DISCOUNTS[distinctBooks]);
         }
+        return totalPrice;
     }
 
 }
