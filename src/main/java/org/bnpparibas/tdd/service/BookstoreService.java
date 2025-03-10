@@ -15,11 +15,11 @@ public class BookstoreService {
     public double calculatePrice(Map<String, Integer> books) {
         List<Integer> bookCounts = new ArrayList<>(books.values());
         double totalPrice = 0.0;
+        int distinctBooks = 0;
         for (int count : bookCounts) {
-            int distinctBooks = 0;
             distinctBooks++;
-            totalPrice += distinctBooks * BOOK_PRICE * (1 - DISCOUNTS[distinctBooks]);
         }
+        totalPrice += distinctBooks * BOOK_PRICE * (1 - DISCOUNTS[distinctBooks]);
         return totalPrice;
     }
 
