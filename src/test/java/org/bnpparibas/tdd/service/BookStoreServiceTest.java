@@ -55,5 +55,14 @@ public class BookStoreServiceTest {
         assertEquals(320.0, price, 0.01);
     }
 
+    @Test
+    public void testIfBooksAreEmpty() {
+
+        Map<String, Integer> books = new HashMap<>();
+        BookstoreService service = new BookstoreService();
+        double price = service.calculatePrice(books);
+        assertEquals(0.0, price, 0.01);
+    }
+
 
 }
